@@ -15,6 +15,9 @@ import backfill.test4.Test4FirstLine;
 import backfill.test4.Test4SecondLine;
 import backfill.test4.Test4ThirdLine;
 import backfill.test5.Test5FirstLine;
+import backfill.test6.Test6FirstLine;
+import backfill.test6.Test6SecondLine;
+import backfill.test6.Test6ThirdLine;
 import backfill.testName.DefaultValue;
 import exel.ExelFile;
 
@@ -169,7 +172,35 @@ public class HeaderAndTest1 {
                 parser,
                 exelFileCreator);
 
-        
+        int lastLineForEmpStr5 = emptyStr.emptyString(
+                exelFile.getWorkbook(),
+                exelFile.getSheet(),
+                lastLineForT5L1,
+                exelFileCreator);
+
+        Test6FirstLine test6FirstLine = new Test6FirstLine();
+        int lastLineForT6L1 = test6FirstLine.firstLine(
+                exelFile.getWorkbook(),
+                exelFile.getSheet(),
+                lastLineForEmpStr5,
+                defaultValue,
+                parser,
+                exelFileCreator);
+
+        Test6SecondLine test6SecondLine = new Test6SecondLine();
+        int lastLineForT6L2 = test6SecondLine.secondLine(
+                exelFile.getWorkbook(),
+                exelFile.getSheet(),
+                lastLineForT6L1,
+                parser,
+                exelFileCreator);
+
+        Test6ThirdLine test6ThirdLine = new Test6ThirdLine();
+        test6ThirdLine.thirdLine(
+                exelFile.getWorkbook(),
+                exelFile.getSheet(),
+                lastLineForT6L1,
+                exelFileCreator);
 
 
     }
