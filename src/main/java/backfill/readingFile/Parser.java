@@ -1,9 +1,6 @@
 package backfill.readingFile;
 
-import backfill.run.Run;
-
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.*;
 
 //parsing file and write data into Map
@@ -16,7 +13,6 @@ public class Parser {
 
         try {
             Scanner input;
-//            File file = new File("C:\\Users\\Taras\\Desktop\\TestFile.txt");
             input = new Scanner(file);
 
             while (input.hasNextLine()) {
@@ -50,12 +46,11 @@ public class Parser {
         return map;
     }
 
-    public void showMap (){
+    public void showMap() {
         for (String name : map.keySet()) {
 
             String key = name;
             String value = map.get(name).toString();
-
 
 
             System.out.println(key + " " + value);
