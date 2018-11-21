@@ -1,7 +1,7 @@
 package backfill.Tests;
 
 
- public  class NumberOfRecords_1 extends Test {
+public class NumberOfRecords_1 extends Test {
 
     public String TestName() {
         return "Verification of number of records in source table and target table in hive";
@@ -10,12 +10,12 @@ package backfill.Tests;
     public String testsSteps(String database, String tableName, String backfillTable, String netezzaTable) {
 
         if (database.equalsIgnoreCase("Oracle")) {
-            return  "Check the number of records in " + database + " " + tableName;
+            return "Check the number of records in " + database + " " + tableName;
         } else return "Check the number of records in " + database + " " + netezzaTable;
     }
 
-    public String testsSteps2(String backfillTableName, String tableName, String backfillTable, String netezzaTable) {
-        return "Check the number of records in hive " + backfillTableName + " table";
+    public String testsSteps2(String tableName, String backfillTable, String netezzaTable) {
+        return "Check the number of records in hive " + backfillTable + " table";
     }
 
     public String testsSteps3(String database, String tableName, String backfillTable, String netezzaTable) {

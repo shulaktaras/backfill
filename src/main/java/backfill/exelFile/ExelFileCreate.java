@@ -6,7 +6,7 @@ public class ExelFileCreate {
     private static File file;
 
     public File exelFileCreator() {
-        file = new File("C:\\Users\\Taras\\Desktop\\new3.xls");
+        file = new File("C:\\Users\\Taras\\Desktop\\newTestFile.xls");
         return file;
     }
 

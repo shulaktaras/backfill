@@ -1,8 +1,10 @@
 package backfill;
 
 import backfill.dataFilling.Header;
-import backfill.dataFilling.Test1;
+import backfill.test1.Test1FirstLine;
 import backfill.exelFile.ExelFileCreate;
+import backfill.readingFile.Parser;
+import backfill.test1.Test1SecondLine;
 import backfill.testName.DefaultValue;
 import exel.ExelFile;
 
@@ -18,13 +20,23 @@ public class HeaderAndTest1 {
         defaultValue.headerName();
         defaultValue.addTestName();
 
+        Parser parser = new Parser();
+
         ExelFileCreate exelFileCreate = new ExelFileCreate();
-        File file = exelFileCreate.exelFileCreator();
+        File exelFileCreator = exelFileCreate.exelFileCreator();
         Header header = new Header();
 
-        int lrn = header.createSheetWithHeader(exelFile.getWorkbook(), exelFile.getSheet(), file);
-        Test1 test1 = new Test1();
-        test1.test1(exelFile.getWorkbook(), exelFile.getSheet(), lrn, defaultValue, file);
+        //last line for header line
+        int lrn = header.createSheetWithHeader(exelFile.getWorkbook(), exelFile.getSheet(), exelFileCreator);
+
+        Test1FirstLine test1FirstLine = new Test1FirstLine();
+        //last line for test1 line 1
+        int lastLineForT1L1 = test1FirstLine.firstLine(exelFile.getWorkbook(), exelFile.getSheet(), lrn, defaultValue, parser, exelFileCreator);
+
+        Test1SecondLine test1SecondLine = new Test1SecondLine();
+        //last line for test1 line 2
+        test1SecondLine.secondLine(exelFile.getWorkbook(), exelFile.getSheet(), lastLineForT1L1, parser, exelFileCreator);
+
 
     }
 

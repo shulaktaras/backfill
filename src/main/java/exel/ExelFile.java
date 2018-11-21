@@ -14,8 +14,8 @@ public class ExelFile {
         return sheet;
     }
 
-    private Workbook workbook = new HSSFWorkbook();
-    private Sheet sheet = workbook.createSheet("My test");
+    private static Workbook workbook = new HSSFWorkbook();
+    private static Sheet sheet = workbook.createSheet("My test");
 
 
 }
