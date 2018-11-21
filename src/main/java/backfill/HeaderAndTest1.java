@@ -8,6 +8,12 @@ import backfill.readingFile.Parser;
 import backfill.test1.Test1SecondLine;
 import backfill.test1.Test1ThirdLine;
 import backfill.test2.Test2FirstLine;
+import backfill.test3.Test3FirstLine;
+import backfill.test3.Test3SecondLine;
+import backfill.test3.Test3ThirdLine;
+import backfill.test4.Test4FirstLine;
+import backfill.test4.Test4SecondLine;
+import backfill.test4.Test4ThirdLine;
 import backfill.testName.DefaultValue;
 import exel.ExelFile;
 
@@ -81,5 +87,70 @@ public class HeaderAndTest1 {
                 parser,
                 exelFileCreator);
 
+        //add empty line after second test
+        int lastLineForEmpStr2 = emptyStr.emptyString(
+                exelFile.getWorkbook(),
+                exelFile.getSheet(),
+                lastLineForT2L1,
+                exelFileCreator);
+
+
+        Test3FirstLine test3FirstLine = new Test3FirstLine();
+        test3FirstLine.firstLine(
+                exelFile.getWorkbook(),
+                exelFile.getSheet(),
+                lastLineForEmpStr2,
+                defaultValue,
+                parser,
+                exelFileCreator);
+
+        Test3SecondLine test3SecondLine = new Test3SecondLine();
+        int lastLineForT3L2 = test3SecondLine.secondLine(
+                exelFile.getWorkbook(),
+                exelFile.getSheet(),
+                lastLineForEmpStr2,
+                parser,
+                exelFileCreator);
+
+        Test3ThirdLine test3ThirdLine = new Test3ThirdLine();
+        int lastLineForT3L3 = test3ThirdLine.thirdLine(
+                exelFile.getWorkbook(),
+                exelFile.getSheet(),
+                lastLineForT3L2,
+                parser,
+                exelFileCreator);
+
+        int lastLineForEmpStr3 = emptyStr.emptyString(
+                exelFile.getWorkbook(),
+                exelFile.getSheet(),
+                lastLineForT3L3,
+                exelFileCreator);
+
+        Test4FirstLine test4FirstLine = new Test4FirstLine();
+        int lastLineForT4L1 = test4FirstLine.firstLine(
+                exelFile.getWorkbook(),
+                exelFile.getSheet(),
+                lastLineForEmpStr3,
+                defaultValue,
+                parser,
+                exelFileCreator);
+
+        Test4SecondLine test4SecondLine = new Test4SecondLine();
+        int lastLinrForT4L2 = test4SecondLine.secondLine(
+                exelFile.getWorkbook(),
+                exelFile.getSheet(),
+                lastLineForT4L1,
+                defaultValue,
+                parser,
+                exelFileCreator);
+
+
+        Test4ThirdLine test4ThirdLine = new Test4ThirdLine();
+        int lastLineForT4L3 = test4ThirdLine.thitdLine(
+                exelFile.getWorkbook(),
+                exelFile.getSheet(),
+                lastLinrForT4L2,
+                parser,
+                exelFileCreator);
     }
 }

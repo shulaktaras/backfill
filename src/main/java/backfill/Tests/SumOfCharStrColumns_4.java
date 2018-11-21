@@ -1,5 +1,7 @@
 package backfill.Tests;
 
+import java.util.List;
+
 public class SumOfCharStrColumns_4 extends Test {
 
     public String TestName() {
@@ -13,23 +15,55 @@ public class SumOfCharStrColumns_4 extends Test {
             return "Calculate the sum of characters in string columns in " + database + " " + netezzaTable + " table";
     }
 
-    public String testsSteps2(String database, String tableName, String backfillTable, String netezzaTable) {
-        return "Calculate sum of values of numeric columns in hive " + backfillTable + " table";
+    public String testsSteps2(String backfillTable) {
+        return "Calculate sum of characters in string columns in hive " + backfillTable + " table";
     }
 
-    public String testsSteps3(String database, String tableName, String backfillTable, String netezzaTable) {
+    public String testsSteps3(String database) {
         return "Compare values got in " + database + " and hive";
     }
 
     public String testDataSource(String schema, String tableName) {
-        return "some query";
+        return null;
+    }
+
+    public String testDataSource2(String schema, String tableName, List<String> list) {
+        String str = "select";
+
+        for (int i = 0; i < list.size(); i++) {
+            if (i != (list.size() - 1)) {
+                str.concat("\nsum(length(coalesce(" + list.get(i) + ",''))),");
+            } else str.concat("\nsum(length(coalesce(" + list.get(i) + ",'')))");
+        }
+
+        str.concat("\nfrom " + schema + "." + tableName);
+        return str;
     }
 
     public String testDataTarget(String schema, String backfillTable) {
         return "some query";
     }
 
+    public String testDataTarget2(String backfillTable, List<String> list) {
+        String str = "select";
+
+        for (int i = 0; i < list.size(); i++) {
+            if (i != (list.size() - 1)) {
+                str.concat("\nsum(length(coalesce(" + list.get(i) + ",''))),");
+            } else str.concat("\nsum(length(coalesce(" + list.get(i) + ",'')))");
+        }
+
+        str.concat("\nfrom " + backfillTable);
+        return str;
+    }
+
+
+
     public String expectedResultsForSource(String database, String tableName, String netezzaTable) {
+        return "Get sum of values";
+    }
+
+    public String expectedResultsForSource2() {
         return "Get sum of values";
     }
 
@@ -37,7 +71,7 @@ public class SumOfCharStrColumns_4 extends Test {
         return "Get sum of values";
     }
 
-    public String expectedResult(){
+    public String expectedResult() {
         return "Numbers should match";
     }
 }
