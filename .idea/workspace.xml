@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a79249a-a980-4073-8c53-2b3c3fc6b52d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/backfill/test6/Test6FirstLine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backfill/test6/Test6SecondLine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backfill/test6/Test6ThirdLine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/backfill/HeaderAndTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backfill/HeaderAndTest1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backfill/Tests/VerificationData_6.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backfill/Tests/VerificationData_6.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -84,8 +79,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/backfill/HeaderAndTest1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="203" lean-forward="true" selection-start-line="203" selection-end-line="203" />
+            <state relative-caret-position="358">
+              <caret line="201" column="32" lean-forward="true" selection-start-line="201" selection-start-column="32" selection-end-line="201" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -406,7 +401,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542810782793" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542810857249" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -539,12 +534,12 @@
       <workItem from="1542398958834" duration="7321000" />
       <workItem from="1542633368896" duration="37648000" />
       <workItem from="1542790122515" duration="4467000" />
-      <workItem from="1542794796211" duration="14076000" />
+      <workItem from="1542794796211" duration="14151000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67542000" />
+    <option name="totallyTimeSpent" value="67617000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1036,8 +1031,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/backfill/HeaderAndTest1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="203" lean-forward="true" selection-start-line="203" selection-end-line="203" />
+        <state relative-caret-position="358">
+          <caret line="201" column="32" lean-forward="true" selection-start-line="201" selection-start-column="32" selection-end-line="201" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

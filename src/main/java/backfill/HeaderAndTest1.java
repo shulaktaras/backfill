@@ -199,7 +199,7 @@ public class HeaderAndTest1 {
         test6ThirdLine.thirdLine(
                 exelFile.getWorkbook(),
                 exelFile.getSheet(),
-                lastLineForT6L1,
+                lastLineForT6L2,
                 exelFileCreator);
 
 
