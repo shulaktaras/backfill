@@ -5,6 +5,7 @@ import backfill.test1.Test1FirstLine;
 import backfill.exelFile.ExelFileCreate;
 import backfill.readingFile.Parser;
 import backfill.test1.Test1SecondLine;
+import backfill.test1.Test1ThirdLine;
 import backfill.testName.DefaultValue;
 import exel.ExelFile;
 
@@ -35,8 +36,11 @@ public class HeaderAndTest1 {
 
         Test1SecondLine test1SecondLine = new Test1SecondLine();
         //last line for test1 line 2
-        test1SecondLine.secondLine(exelFile.getWorkbook(), exelFile.getSheet(), lastLineForT1L1, parser, exelFileCreator);
+        int lastLineForT1L2 = test1SecondLine.secondLine(exelFile.getWorkbook(), exelFile.getSheet(), lastLineForT1L1, parser, exelFileCreator);
 
+        Test1ThirdLine test1ThirdLine = new Test1ThirdLine();
+        //last line for test1 line 3
+        int lastLineForT1L3 = test1ThirdLine.thirdLine(exelFile.getWorkbook(), exelFile.getSheet(), lastLineForT1L2, parser, exelFileCreator);
 
     }
 

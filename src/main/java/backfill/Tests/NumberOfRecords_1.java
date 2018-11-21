@@ -18,7 +18,7 @@ public class NumberOfRecords_1 extends Test {
         return "Check the number of records in hive " + backfillTable + " table";
     }
 
-    public String testsSteps3(String database, String tableName, String backfillTable, String netezzaTable) {
+    public String testsSteps3(String database) {
         return "Compare number of records in " + database + " and hive tables";
     }
 
@@ -40,6 +40,10 @@ public class NumberOfRecords_1 extends Test {
 
     public String expectedResultsForTarget(String database, String backfillTable) {
         return "Get number of records in hive " + backfillTable + " table";
+    }
+
+    public String expectedResult(){
+        return "Number of records matches";
     }
 
 //    public String expectedResults(String database, String tableName) {
