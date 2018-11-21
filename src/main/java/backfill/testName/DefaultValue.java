@@ -11,8 +11,8 @@ public class DefaultValue {
         return header;
     }
 
-    private ArrayList<String> definition = new ArrayList<String>();
-    private ArrayList<String> header = new ArrayList<String>();
+    private ArrayList<String> definition = new ArrayList<>();
+    private ArrayList<String> header = new ArrayList<>();
 
     public void headerName() {
         header.add("Tests Name");
