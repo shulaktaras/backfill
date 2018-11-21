@@ -15,13 +15,11 @@ import java.util.Map;
 
 public class Test1ThirdLine {
 
-    public int thirdLine(Workbook workbook, Sheet sheet, int lastRowNumer, Parser parser, File file) throws IOException {
+    public int thirdLine(Workbook workbook, Sheet sheet, int lastRowNumer, Map<String, List<String>> map, File file) throws IOException {
         lastRowNumer += 1;
 //        ArrayList<String> definition = defaultValue.getDefinition();
         Row row = sheet.createRow(lastRowNumer);
         NumberOfRecords_1 numberOfRecords_1 = new NumberOfRecords_1();
-
-        Map<String, List<String>> map = parser.getMap();
 
         for (int i = 1; i <= 4; i++) {
             switch (i) {

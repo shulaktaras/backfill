@@ -23,7 +23,7 @@ public class NumberOfRecords_1 extends Test {
     }
 
     public String testDataSource(String schema, String tableName) {
-        return "select count(*)" +
+        return "select count(*) " +
                 "from " + schema + "." + tableName;
     }
 

@@ -17,14 +17,12 @@ import java.util.Map;
 
 public class Test4SecondLine {
 
-    public int secondLine(Workbook workbook, Sheet sheet, int lastRowNumer, DefaultValue defaultValue, Parser parser, File file) throws IOException {
+    public int secondLine(Workbook workbook, Sheet sheet, int lastRowNumer, DefaultValue defaultValue, Map<String, List<String>> map, File file) throws IOException {
         lastRowNumer += 1;
         Row row = sheet.createRow(lastRowNumer);
 
-        ArrayList<String> definition = defaultValue.getDefinition();
 
         SumOfCharStrColumns_4 sumOfCharStrColumns_4 = new SumOfCharStrColumns_4();
-        Map<String, List<String>> map = parser.getMap();
 
         for (int i = 0; i <= 4; i++) {
             switch (i) {

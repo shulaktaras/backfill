@@ -16,7 +16,7 @@ public class SumOfNumericValues_3 extends Test {
         } else return "Calculate sum of values of numeric columns in " + database + " " + netezzaTable + " table";
     }
 
-    public String testsSteps2( String backfillTable) {
+    public String testsSteps2(String backfillTable) {
         return "Calculate sum of values of numeric columns in hive from " + backfillTable + " table";
     }
 
@@ -28,17 +28,17 @@ public class SumOfNumericValues_3 extends Test {
         return null;
     }
 
-    public String testDataSource2(String schema,String tableName, List<String> list) {
+    public String testDataSource2(String schema, String tableName, List<String> list) {
 
         String str = "select";
 
         for (int i = 0; i < list.size(); i++) {
-            if (i != (list.size()-1)){
-                str.concat("\nsum("+list.get(i)+ "),");
-            }else str.concat("\nsum("+list.get(i));
+            if (i != (list.size() - 1)) {
+                str = str.concat("\nsum(" + list.get(i) + "),");
+            } else str = str.concat("\nsum(" + list.get(i));
         }
 
-        str.concat("\nfrom " + schema +"." + tableName);
+        str = str.concat("\nfrom " + schema + "." + tableName);
         return str;
     }
 
@@ -52,9 +52,9 @@ public class SumOfNumericValues_3 extends Test {
         String str = "select";
 
         for (int i = 0; i < list.size(); i++) {
-            if (i != (list.size()-1)){
-                str.concat("\nsum("+list.get(i)+ "),");
-            }else str.concat("\nsum("+list.get(i));
+            if (i != (list.size() - 1)) {
+                str.concat("\nsum(" + list.get(i) + "),");
+            } else str.concat("\nsum(" + list.get(i));
         }
 
         str.concat("\nfrom " + backfillTable);
@@ -70,7 +70,7 @@ public class SumOfNumericValues_3 extends Test {
         return null;
     }
 
-    public String expectedResult(){
+    public String expectedResult() {
         return "Get sum of values";
     }
 

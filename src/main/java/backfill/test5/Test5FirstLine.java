@@ -18,15 +18,13 @@ import java.util.Map;
 
 public class Test5FirstLine {
 
-    public int firstLine(Workbook workbook, Sheet sheet, int lastRowNumer, DefaultValue defaultValue, Parser parser, File file) throws IOException {
+    public int firstLine(Workbook workbook, Sheet sheet, int lastRowNumer, DefaultValue defaultValue, Map<String, List<String>> map, File file) throws IOException {
         lastRowNumer += 1;
         Row row = sheet.createRow(lastRowNumer);
 
         ArrayList<String> definition = defaultValue.getDefinition();
 
         DateValues_5 dateValues_5 = new DateValues_5();
-
-        Map<String, List<String>> map = parser.getMap();
 
         for (int i = 0; i <= 4; i++) {
             switch (i) {
@@ -48,7 +46,7 @@ public class Test5FirstLine {
 
                     cell3.setCellValue(dateValues_5.testDataSource2(
                             map.get("backfillTable").get(0),
-                            map.get("DATA")
+                            map.get("DATE")
                     ));
                     break;
                 case 3:

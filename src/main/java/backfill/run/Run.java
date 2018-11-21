@@ -7,10 +7,9 @@ import java.io.File;
 public class Run {
 
 
-    public void go(File file) {
+    public void go(Parser parser) {
 
-        Parser parser = new Parser();
-        parser.parseFile(file);
+        parser.showMap();
 //        Map<String, List<String>> stringListMap = test.parseFile();
 //        for (String name : stringListMap.keySet()) {
 //

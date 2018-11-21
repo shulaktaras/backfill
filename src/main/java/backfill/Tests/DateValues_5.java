@@ -25,20 +25,20 @@ public class DateValues_5 extends Test {
 
         for (int i = 0; i < list.size(); i++) {
             if (i != (list.size() - 1)) {
-                str.concat("\ncase when regexp_extract(" + list.get(i) + ",'\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}',0) ='' then 0 else 1 end as result_" + list.get(i) + ",");
-            } else str.concat("\nsum(length(coalesce(" + list.get(i) + ",'')))");
+                str = str.concat("\n case when regexp_extract(" + list.get(i) + ",'\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}',0) ='' then 0 else 1 end as result_" + list.get(i) + ",");
+            } else str = str.concat("\n case when regexp_extract(" + list.get(i) + ",'\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}',0) ='' then 0 else 1 end as result_" + list.get(i));
         }
 
-        str.concat("\nfrom " + backfillTable + "\n)");
+        str = str.concat("\nfrom " + backfillTable + "\n)");
 
 
-        str.concat("\nselect * from t1" +
-                "\nwhere ");
+        str = str.concat("\n select * from t1" +
+                "\n where ");
         for (int i = 0; i < list.size(); i++) {
 
             if (i != (list.size() - 1)) {
-                str.concat("result_" + list.get(i) + " = 0 or");
-            } else str.concat("result_" + list.get(i) + " = 0");
+                str = str.concat("result_" + list.get(i) + " = 0 or ");
+            } else str = str.concat("result_" + list.get(i) + " = 0");
         }
         return str;
     }
@@ -50,6 +50,7 @@ public class DateValues_5 extends Test {
     public String expectedResultsForSource(String database, String tableName, String netezzaTable) {
         return "No data returned";
     }
+
     public String expectedResultsForSource() {
         return "No data returned";
     }

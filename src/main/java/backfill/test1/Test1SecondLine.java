@@ -15,13 +15,12 @@ import java.util.Map;
 
 public class Test1SecondLine {
 
-    public int secondLine(Workbook workbook, Sheet sheet, int lastRowNumer, Parser parser, File file) throws IOException {
+    public int secondLine(Workbook workbook, Sheet sheet, int lastRowNumer, Map<String, List<String>> map, File file) throws IOException {
         lastRowNumer += 1;
 //        ArrayList<String> definition = defaultValue.getDefinition();
         Row row = sheet.createRow(lastRowNumer);
         NumberOfRecords_1 numberOfRecords_1 = new NumberOfRecords_1();
 
-        Map<String, List<String>> map = parser.getMap();
 
         for (int i = 1; i <= 4; i++) {
             switch (i) {
@@ -31,7 +30,7 @@ public class Test1SecondLine {
                     cell2.setCellValue(numberOfRecords_1.testsSteps2(
                             map.get("tableName").get(0),
                             map.get("backfillTable").get(0),
-                            map.get("netezzatable").get(0)));
+                            map.get("netezzaTable").get(0)));
                     break;
                 case 2:
                     Cell cell3 = row.createCell(i);

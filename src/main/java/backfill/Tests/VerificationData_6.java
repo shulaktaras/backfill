@@ -37,11 +37,11 @@ public class VerificationData_6 extends Test {
 
         for (int i = 0; i < list.size(); i++) {
             if (i != (list.size() - 1)) {
-                str.concat(list.get(i) + ",");
-            } else str.concat(list.get(i));
+                str = str.concat(list.get(i) + ",");
+            } else str = str.concat(list.get(i));
         }
 
-        str.concat(") as rn" +
+        str = str.concat(") as rn" +
                 "\nfrom " + schema + "." + tableName + "\nwhere rn<=10000");
 
         return str;
@@ -56,12 +56,12 @@ public class VerificationData_6 extends Test {
         String str = "qab --outputformat=csv2 -e \"select *, rownum() over(order by ";
 
         for (int i = 0; i < list.size(); i++) {
-            if (i != (list.size()-1)){
+            if (i != (list.size() - 1)) {
                 str.concat(list.get(i) + ",");
-            }else str.concat(list.get(i));
+            } else str.concat(list.get(i));
         }
 
-         str.concat(") as rn " + backfillTable+ " where rn <=10000; > theFileWhereToStoreTheData2.csv");
+        str.concat(") as rn " + backfillTable + " where rn <=10000; > theFileWhereToStoreTheData2.csv");
 
         return str;
     }
@@ -69,6 +69,7 @@ public class VerificationData_6 extends Test {
     public String expectedResultsForSource(String database, String tableName, String netezzaTable) {
         return null;
     }
+
     public String expectedResultsForSource() {
         return "Get csv file with data";
     }

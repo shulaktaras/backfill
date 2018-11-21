@@ -17,13 +17,12 @@ import java.util.Map;
 
 public class Test3ThirdLine {
 
-    public int thirdLine(Workbook workbook, Sheet sheet, int lastRowNumber, Parser parser, File file) throws IOException {
+    public int thirdLine(Workbook workbook, Sheet sheet, int lastRowNumber, Map<String, List<String>> map, File file) throws IOException {
         lastRowNumber += 1;
         Row row = sheet.createRow(lastRowNumber);
 
         SumOfNumericValues_3 sumOfNumericValues_3 = new SumOfNumericValues_3();
 
-        Map<String, List<String>> map = parser.getMap();
 
         for (int i = 0; i <= 4; i++) {
             switch (i) {

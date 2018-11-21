@@ -3,17 +3,9 @@ package backfill.testName;
 import java.util.ArrayList;
 
 public class DefaultValue {
-    public ArrayList<String> getDefinition() {
-        return definition;
-    }
-
-    public ArrayList<String> getHeader() {
-        return header;
-    }
-
     private ArrayList<String> definition = new ArrayList<>();
-    private ArrayList<String> header = new ArrayList<>();
 
+    private ArrayList<String> header = new ArrayList<>();
     public void headerName() {
         header.add("Tests Name");
         header.add("Test Steps");
@@ -32,5 +24,13 @@ public class DefaultValue {
         definition.add("Verification of sum of characters in string columns in Oracle table and target table in hive");
         definition.add("Verification of date values in target table in hive");
         definition.add("Verification of data between Oracle and hive table");
+    }
+
+    public ArrayList<String> getDefinition() {
+        return definition;
+    }
+
+    public ArrayList<String> getHeader() {
+        return header;
     }
 }

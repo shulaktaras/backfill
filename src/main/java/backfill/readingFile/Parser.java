@@ -27,7 +27,7 @@ public class Parser {
 
                 if (key.equalsIgnoreCase("char") || key.equalsIgnoreCase("varchar2")) {
                     key = "characters";
-                } else if (key.equalsIgnoreCase("numeric") || key.equalsIgnoreCase("integer")) {
+                } else if (key.equalsIgnoreCase("number") || key.equalsIgnoreCase("integer")) {
                     key = "numbers";
                 }
 
@@ -42,22 +42,26 @@ public class Parser {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-//        for (String name : map.keySet()) {
-//
-//            String key = name;
-//            String value = map.get(name).toString();
-//
-//
-////
-//            System.out.println(key + " " + value);
-//
-//
-//        }
+
         return map;
     }
 
     public Map<String, List<String>> getMap() {
         return map;
+    }
+
+    public void showMap (){
+        for (String name : map.keySet()) {
+
+            String key = name;
+            String value = map.get(name).toString();
+
+
+
+            System.out.println(key + " " + value);
+
+
+        }
     }
 
 }

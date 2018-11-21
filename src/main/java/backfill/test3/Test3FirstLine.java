@@ -18,14 +18,13 @@ import java.util.Map;
 
 public class Test3FirstLine {
 
-    public int firstLine(Workbook workbook, Sheet sheet, int lastRowNumer, DefaultValue defaultValue, Parser parser, File file) throws IOException {
-        lastRowNumer += 1;
+    public int firstLine(Workbook workbook, Sheet sheet, int lastRowNumber, DefaultValue defaultValue, Map<String, List<String>> map, File file) throws IOException {
+        lastRowNumber += 1;
         ArrayList<String> definition = defaultValue.getDefinition();
-        Row row = sheet.createRow(lastRowNumer);
+        Row row = sheet.createRow(lastRowNumber);
+
 
         SumOfNumericValues_3 sumOfNumericValues_3 = new SumOfNumericValues_3();
-
-        Map<String, List<String>> map = parser.getMap();
 
         for (int i = 0; i <= 4; i++) {
             switch (i) {
@@ -59,7 +58,7 @@ public class Test3FirstLine {
                     break;
             }
         }
-
+        row.setHeight((short) -5);
         workbook.write(new FileOutputStream(file));
         workbook.close();
         int lastRowNum = sheet.getLastRowNum();

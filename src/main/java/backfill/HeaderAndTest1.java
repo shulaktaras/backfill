@@ -23,17 +23,19 @@ import exel.ExelFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 public class HeaderAndTest1 {
 
 
-    public void run() throws IOException {
+    public void run(Parser parser) throws IOException {
         ExelFile exelFile = new ExelFile();
         DefaultValue defaultValue = new DefaultValue();
         defaultValue.headerName();
         defaultValue.addTestName();
 
-        Parser parser = new Parser();
+        Map<String, List<String>> map = parser.getMap();
 
         ExelFileCreate exelFileCreate = new ExelFileCreate();
         File exelFileCreator = exelFileCreate.exelFileCreator();
@@ -52,7 +54,7 @@ public class HeaderAndTest1 {
                 exelFile.getSheet(),
                 lrn,
                 defaultValue,
-                parser,
+                map,
                 exelFileCreator);
 
         Test1SecondLine test1SecondLine = new Test1SecondLine();
@@ -61,7 +63,7 @@ public class HeaderAndTest1 {
                 exelFile.getWorkbook(),
                 exelFile.getSheet(),
                 lastLineForT1L1,
-                parser,
+                map,
                 exelFileCreator);
 
         Test1ThirdLine test1ThirdLine = new Test1ThirdLine();
@@ -70,7 +72,7 @@ public class HeaderAndTest1 {
                 exelFile.getWorkbook(),
                 exelFile.getSheet(),
                 lastLineForT1L2,
-                parser,
+                map,
                 exelFileCreator);
 
         EmptyStr emptyStr = new EmptyStr();
@@ -88,7 +90,7 @@ public class HeaderAndTest1 {
                 exelFile.getSheet(),
                 lastLineForEmpStr,
                 defaultValue,
-                parser,
+                map,
                 exelFileCreator);
 
         //add empty line after second test
@@ -105,7 +107,7 @@ public class HeaderAndTest1 {
                 exelFile.getSheet(),
                 lastLineForEmpStr2,
                 defaultValue,
-                parser,
+                map,
                 exelFileCreator);
 
         Test3SecondLine test3SecondLine = new Test3SecondLine();
@@ -113,7 +115,7 @@ public class HeaderAndTest1 {
                 exelFile.getWorkbook(),
                 exelFile.getSheet(),
                 lastLineForEmpStr2,
-                parser,
+                map,
                 exelFileCreator);
 
         Test3ThirdLine test3ThirdLine = new Test3ThirdLine();
@@ -121,7 +123,7 @@ public class HeaderAndTest1 {
                 exelFile.getWorkbook(),
                 exelFile.getSheet(),
                 lastLineForT3L2,
-                parser,
+                map,
                 exelFileCreator);
 
         int lastLineForEmpStr3 = emptyStr.emptyString(
@@ -136,7 +138,7 @@ public class HeaderAndTest1 {
                 exelFile.getSheet(),
                 lastLineForEmpStr3,
                 defaultValue,
-                parser,
+                map,
                 exelFileCreator);
 
         Test4SecondLine test4SecondLine = new Test4SecondLine();
@@ -145,7 +147,7 @@ public class HeaderAndTest1 {
                 exelFile.getSheet(),
                 lastLineForT4L1,
                 defaultValue,
-                parser,
+                map,
                 exelFileCreator);
 
 
@@ -154,7 +156,7 @@ public class HeaderAndTest1 {
                 exelFile.getWorkbook(),
                 exelFile.getSheet(),
                 lastLinrForT4L2,
-                parser,
+                map,
                 exelFileCreator);
 
         int lastLineForEmpStr4 = emptyStr.emptyString(
@@ -169,7 +171,7 @@ public class HeaderAndTest1 {
                 exelFile.getSheet(),
                 lastLineForEmpStr4,
                 defaultValue,
-                parser,
+                map,
                 exelFileCreator);
 
         int lastLineForEmpStr5 = emptyStr.emptyString(
@@ -184,7 +186,7 @@ public class HeaderAndTest1 {
                 exelFile.getSheet(),
                 lastLineForEmpStr5,
                 defaultValue,
-                parser,
+                map,
                 exelFileCreator);
 
         Test6SecondLine test6SecondLine = new Test6SecondLine();
@@ -192,7 +194,7 @@ public class HeaderAndTest1 {
                 exelFile.getWorkbook(),
                 exelFile.getSheet(),
                 lastLineForT6L1,
-                parser,
+                map,
                 exelFileCreator);
 
         Test6ThirdLine test6ThirdLine = new Test6ThirdLine();

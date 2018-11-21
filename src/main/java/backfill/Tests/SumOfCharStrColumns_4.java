@@ -32,11 +32,11 @@ public class SumOfCharStrColumns_4 extends Test {
 
         for (int i = 0; i < list.size(); i++) {
             if (i != (list.size() - 1)) {
-                str.concat("\nsum(length(coalesce(" + list.get(i) + ",''))),");
-            } else str.concat("\nsum(length(coalesce(" + list.get(i) + ",'')))");
+                str = str.concat("\nsum(length(coalesce(" + list.get(i) + ",''))),");
+            } else str = str.concat("\nsum(length(coalesce(" + list.get(i) + ",'')))");
         }
 
-        str.concat("\nfrom " + schema + "." + tableName);
+        str = str.concat("\nfrom " + schema + "." + tableName);
         return str;
     }
 
@@ -49,14 +49,13 @@ public class SumOfCharStrColumns_4 extends Test {
 
         for (int i = 0; i < list.size(); i++) {
             if (i != (list.size() - 1)) {
-                str.concat("\nsum(length(coalesce(" + list.get(i) + ",''))),");
-            } else str.concat("\nsum(length(coalesce(" + list.get(i) + ",'')))");
+                str = str.concat("\nsum(length(coalesce(" + list.get(i) + ",''))),");
+            } else str = str.concat("\nsum(length(coalesce(" + list.get(i) + ",'')))");
         }
 
-        str.concat("\nfrom " + backfillTable);
+        str = str.concat("\nfrom " + backfillTable);
         return str;
     }
-
 
 
     public String expectedResultsForSource(String database, String tableName, String netezzaTable) {
