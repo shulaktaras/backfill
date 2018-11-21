@@ -1,6 +1,6 @@
 package backfill.Tests;
 
-public class VerificationData_7 extends Test {
+public class VerificationData_6 extends Test {
 
     public String TestName() {
         return "Verification of data between source and hive table";
