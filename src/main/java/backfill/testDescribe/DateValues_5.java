@@ -38,7 +38,7 @@ public class DateValues_5 extends Test {
         for (int i = 0; i < list.size(); i++) {
             stringBuilder.append("result_").append(list.get(i)).append(" = 0 or ");
         }
-        stringBuilder.deleteCharAt(stringBuilder.length() - 3);
+        stringBuilder.delete(stringBuilder.length()-3,stringBuilder.length());
         stringBuilder.append(";");
 
         return stringBuilder.toString();
