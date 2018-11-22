@@ -38,7 +38,7 @@ public class AppendAllTests {
         Map<String, List<String>> map = parser.getMap();
 
         ExcelFileCreate excelFileCreate = new ExcelFileCreate();
-        File exelFileCreator = excelFileCreate.exelFileCreator();
+        File exelFileCreator = excelFileCreate.exelFileCreator(map);
         Header header = new Header();
 
         //last line for header line
