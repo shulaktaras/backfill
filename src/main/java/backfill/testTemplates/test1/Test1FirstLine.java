@@ -2,10 +2,7 @@ package backfill.testTemplates.test1;
 
 import backfill.testDescribe.NumberOfRecords_1;
 import backfill.testName.DefaultValue;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -34,6 +31,12 @@ public class Test1FirstLine {
                 case 0:
                     Cell cell1 = row.createCell(i);
                     cell1.setCellValue(definition.get(0));
+                    CellStyle cellStyle = workbook.createCellStyle();
+                    cellStyle.setWrapText(true);
+
+                    row.setHeightInPoints((2*sheet.getDefaultRowHeightInPoints()));
+
+                    sheet.autoSizeColumn(2);
                     break;
                 case 1:
                     Cell cell2 = row.createCell(i);

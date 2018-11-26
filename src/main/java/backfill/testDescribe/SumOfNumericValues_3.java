@@ -34,12 +34,12 @@ public class SumOfNumericValues_3 extends Test {
         stringBuilder.append("select ");
 
         for (String aList : list) {
-            stringBuilder.append("sum(")
+            stringBuilder.append("\nsum(")
                     .append(aList)
                     .append("),");
         }
         stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-        stringBuilder.append(" from ")
+        stringBuilder.append("\n from ")
                 .append(schema)
                 .append(".")
                 .append(tableName);
@@ -58,12 +58,12 @@ public class SumOfNumericValues_3 extends Test {
         stringBuilder.append("select ");
 
         for (String aList : list) {
-            stringBuilder.append("sum(")
+            stringBuilder.append("\nsum(")
                     .append(aList)
                     .append("),");
         }
         stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-        stringBuilder.append(" from ")
+        stringBuilder.append("\n from ")
                 .append(backfillTable)
                 .append(";");
 

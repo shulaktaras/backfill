@@ -30,22 +30,25 @@ public class AppendAllTests {
 
 
     public void run(Parser parser) throws IOException {
+
         ExcelFile excelFile = new ExcelFile();
+
         DefaultValue defaultValue = new DefaultValue();
         defaultValue.headerName();
-        defaultValue.addTestName();
+        defaultValue.testName();
 
         Map<String, List<String>> map = parser.getMap();
 
         ExcelFileCreate excelFileCreate = new ExcelFileCreate();
-        File exelFileCreator = excelFileCreate.exelFileCreator(map);
-        Header header = new Header();
+        File excelFileCreator = excelFileCreate.exelFileCreator(map);
 
+
+        Header header = new Header();
         //last line for header line
         int lrn = header.createSheetWithHeader(
                 excelFile.getWorkbook(),
                 excelFile.getSheet(),
-                exelFileCreator);
+                excelFileCreator);
 
         Test1FirstLine test1FirstLine = new Test1FirstLine();
         //last line for test1 line 1
@@ -55,7 +58,7 @@ public class AppendAllTests {
                 lrn,
                 defaultValue,
                 map,
-                exelFileCreator);
+                excelFileCreator);
 
         Test1SecondLine test1SecondLine = new Test1SecondLine();
         //last line for test1 line 2
@@ -64,7 +67,7 @@ public class AppendAllTests {
                 excelFile.getSheet(),
                 lastLineForT1L1,
                 map,
-                exelFileCreator);
+                excelFileCreator);
 
         Test1ThirdLine test1ThirdLine = new Test1ThirdLine();
         //last line for test1 line 3
@@ -73,7 +76,7 @@ public class AppendAllTests {
                 excelFile.getSheet(),
                 lastLineForT1L2,
                 map,
-                exelFileCreator);
+                excelFileCreator);
 
         EmptyStr emptyStr = new EmptyStr();
         //last line for empty line
@@ -81,7 +84,7 @@ public class AppendAllTests {
                 excelFile.getWorkbook(),
                 excelFile.getSheet(),
                 lastLineForT1L3,
-                exelFileCreator);
+                excelFileCreator);
 
         Test2FirstLine test2FirstLine = new Test2FirstLine();
         //last line for second test first line
@@ -91,14 +94,14 @@ public class AppendAllTests {
                 lastLineForEmpStr,
                 defaultValue,
                 map,
-                exelFileCreator);
+                excelFileCreator);
 
         //add empty line after second test
         int lastLineForEmpStr2 = emptyStr.emptyString(
                 excelFile.getWorkbook(),
                 excelFile.getSheet(),
                 lastLineForT2L1,
-                exelFileCreator);
+                excelFileCreator);
 
 
         Test3FirstLine test3FirstLine = new Test3FirstLine();
@@ -108,7 +111,7 @@ public class AppendAllTests {
                 lastLineForEmpStr2,
                 defaultValue,
                 map,
-                exelFileCreator);
+                excelFileCreator);
 
         Test3SecondLine test3SecondLine = new Test3SecondLine();
         int lastLineForT3L2 = test3SecondLine.secondLine(
@@ -116,7 +119,7 @@ public class AppendAllTests {
                 excelFile.getSheet(),
                 lastLineForT3L1,
                 map,
-                exelFileCreator);
+                excelFileCreator);
 
         Test3ThirdLine test3ThirdLine = new Test3ThirdLine();
         int lastLineForT3L3 = test3ThirdLine.thirdLine(
@@ -124,13 +127,13 @@ public class AppendAllTests {
                 excelFile.getSheet(),
                 lastLineForT3L2,
                 map,
-                exelFileCreator);
+                excelFileCreator);
 
         int lastLineForEmpStr3 = emptyStr.emptyString(
                 excelFile.getWorkbook(),
                 excelFile.getSheet(),
                 lastLineForT3L3,
-                exelFileCreator);
+                excelFileCreator);
 
         Test4FirstLine test4FirstLine = new Test4FirstLine();
         int lastLineForT4L1 = test4FirstLine.firstLine(
@@ -139,7 +142,7 @@ public class AppendAllTests {
                 lastLineForEmpStr3,
                 defaultValue,
                 map,
-                exelFileCreator);
+                excelFileCreator);
 
         Test4SecondLine test4SecondLine = new Test4SecondLine();
         int lastLinrForT4L2 = test4SecondLine.secondLine(
@@ -148,7 +151,7 @@ public class AppendAllTests {
                 lastLineForT4L1,
                 defaultValue,
                 map,
-                exelFileCreator);
+                excelFileCreator);
 
 
         Test4ThirdLine test4ThirdLine = new Test4ThirdLine();
@@ -157,13 +160,13 @@ public class AppendAllTests {
                 excelFile.getSheet(),
                 lastLinrForT4L2,
                 map,
-                exelFileCreator);
+                excelFileCreator);
 
         int lastLineForEmpStr4 = emptyStr.emptyString(
                 excelFile.getWorkbook(),
                 excelFile.getSheet(),
                 lastLineForT4L3,
-                exelFileCreator);
+                excelFileCreator);
 
         Test5FirstLine test5FirstLine = new Test5FirstLine();
         int lastLineForT5L1 = test5FirstLine.firstLine(
@@ -172,13 +175,13 @@ public class AppendAllTests {
                 lastLineForEmpStr4,
                 defaultValue,
                 map,
-                exelFileCreator);
+                excelFileCreator);
 
         int lastLineForEmpStr5 = emptyStr.emptyString(
                 excelFile.getWorkbook(),
                 excelFile.getSheet(),
                 lastLineForT5L1,
-                exelFileCreator);
+                excelFileCreator);
 
         Test6FirstLine test6FirstLine = new Test6FirstLine();
         int lastLineForT6L1 = test6FirstLine.firstLine(
@@ -187,7 +190,7 @@ public class AppendAllTests {
                 lastLineForEmpStr5,
                 defaultValue,
                 map,
-                exelFileCreator);
+                excelFileCreator);
 
         Test6SecondLine test6SecondLine = new Test6SecondLine();
         int lastLineForT6L2 = test6SecondLine.secondLine(
@@ -195,15 +198,14 @@ public class AppendAllTests {
                 excelFile.getSheet(),
                 lastLineForT6L1,
                 map,
-                exelFileCreator);
+                excelFileCreator);
 
         Test6ThirdLine test6ThirdLine = new Test6ThirdLine();
         test6ThirdLine.thirdLine(
                 excelFile.getWorkbook(),
                 excelFile.getSheet(),
                 lastLineForT6L2,
-                exelFileCreator);
-
+                excelFileCreator);
 
     }
 }

@@ -2,10 +2,7 @@ package backfill.testTemplates.test3;
 
 import backfill.testDescribe.SumOfNumericValues_3;
 import backfill.testName.DefaultValue;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -47,6 +44,12 @@ public class Test3FirstLine {
                             map.get("tableName").get(0),
                             map.get("numbers")
                     ));
+                    CellStyle cellStyle = workbook.createCellStyle();
+                    cellStyle.setWrapText(true);
+
+                    row.setHeightInPoints((10*sheet.getDefaultRowHeightInPoints()));
+
+                    sheet.autoSizeColumn(10);
                     break;
                 case 3:
                     Cell cell4 = row.createCell(i);
