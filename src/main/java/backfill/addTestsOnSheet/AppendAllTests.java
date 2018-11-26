@@ -2,6 +2,7 @@ package backfill.addTestsOnSheet;
 
 import backfill.emptyString.EmptyStr;
 import backfill.header.Header;
+import backfill.testDescribe.Test;
 import backfill.testTemplates.test1.Test1FirstLine;
 import backfill.createExcelFile.ExcelFileCreate;
 import backfill.readingFile.Parser;
@@ -20,6 +21,7 @@ import backfill.testTemplates.test6.Test6SecondLine;
 import backfill.testTemplates.test6.Test6ThirdLine;
 import backfill.testName.DefaultValue;
 import backfill.createExcelFile.ExcelFile;
+import backfill.testTemplates.test7.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -198,12 +200,90 @@ public class AppendAllTests {
                 exelFileCreator);
 
         Test6ThirdLine test6ThirdLine = new Test6ThirdLine();
-        test6ThirdLine.thirdLine(
+        int lastLineForT6L3 = test6ThirdLine.thirdLine(
                 excelFile.getWorkbook(),
                 excelFile.getSheet(),
                 lastLineForT6L2,
                 exelFileCreator);
 
+        int lastLineForEmpStr6 = emptyStr.emptyString(
+                excelFile.getWorkbook(),
+                excelFile.getSheet(),
+                lastLineForT6L3,
+                exelFileCreator);
+
+
+        Test7FirstLine test7FirstLine = new Test7FirstLine();
+        int lastLineForT7L1 = test7FirstLine.firstLine(
+                excelFile.getWorkbook(),
+                excelFile.getSheet(),
+                lastLineForEmpStr6,
+                defaultValue,
+                exelFileCreator
+        );
+
+        Test7SecondLine test7SecondLine = new Test7SecondLine();
+        int lastLineForT7L2 = test7SecondLine.secondLine(
+                excelFile.getWorkbook(),
+                excelFile.getSheet(),
+                lastLineForT7L1,
+                defaultValue,
+                exelFileCreator
+        );
+
+        Test7ThirdLine test7ThirdLine = new Test7ThirdLine();
+        int lastLineForT7L3 = test7ThirdLine.thirdLine(
+                excelFile.getWorkbook(),
+                excelFile.getSheet(),
+                lastLineForT7L2,
+                defaultValue,
+                exelFileCreator
+        );
+
+        Test7FourthLine test7FourthLine = new Test7FourthLine();
+        int lastLineForT7L4 = test7FourthLine.fifthLine(
+                excelFile.getWorkbook(),
+                excelFile.getSheet(),
+                lastLineForT7L3,
+                defaultValue,
+                exelFileCreator
+        );
+
+        Test7FifthLine test7FifthLine = new Test7FifthLine();
+        int lastLineForT7L5 = test7FifthLine.secondLine(
+                excelFile.getWorkbook(),
+                excelFile.getSheet(),
+                lastLineForT7L4,
+                defaultValue,
+                exelFileCreator
+        );
+
+        Test7SixthLine test7SixthLine = new Test7SixthLine();
+        int lastLineForT7L6 = test7SixthLine.sixthLine(
+                excelFile.getWorkbook(),
+                excelFile.getSheet(),
+                lastLineForT7L5,
+                defaultValue,
+                exelFileCreator
+        );
+
+        Test7SeventhLine test7SeventhLine = new Test7SeventhLine();
+        int lastLineForT7L7 = test7SeventhLine.seventhLine(
+                excelFile.getWorkbook(),
+                excelFile.getSheet(),
+                lastLineForT7L6,
+                defaultValue,
+                exelFileCreator
+        );
+
+        Test7EighthLine test7EighthLine = new Test7EighthLine();
+        int lastLineForT7L8 = test7EighthLine.eighthLine(
+                excelFile.getWorkbook(),
+                excelFile.getSheet(),
+                lastLineForT7L7,
+                defaultValue,
+                exelFileCreator
+        );
 
     }
 }
