@@ -22,7 +22,7 @@ public class DefaultValue {
         definition.add("Verification of column names and data types in Oracle table and target table in hive");
         definition.add("Verification of sum of values of numeric columns in Oracle table and target table in hive");
         definition.add("Verification of sum of characters in string columns in Oracle table and target table in hive");
-        definition.add("Verification of date values in target table in hive");
+        definition.add("Verification of date format in target table in hive");
         definition.add("Verification of data between Oracle and hive table");
     }
 

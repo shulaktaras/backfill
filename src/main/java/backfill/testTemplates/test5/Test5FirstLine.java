@@ -29,6 +29,7 @@ public class Test5FirstLine {
                 case 0:
                     Cell cell = row.createCell(i);
                     cell.setCellValue(definition.get(4));
+                    break;
                 case 1:
                     Cell cell2 = row.createCell(i);
 
@@ -44,7 +45,7 @@ public class Test5FirstLine {
 
                     cell3.setCellValue(dateValues_5.testDataSource2(
                             map.get("backfillTable").get(0),
-                            map.get("DATE")
+                            map.get("date")
                     ));
                     break;
                 case 3:

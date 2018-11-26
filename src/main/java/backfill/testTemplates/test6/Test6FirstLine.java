@@ -29,6 +29,7 @@ public class Test6FirstLine {
                 case 0:
                     Cell cell = row.createCell(i);
                     cell.setCellValue(definition.get(5));
+                    break;
                 case 1:
                     Cell cell2 = row.createCell(i);
                     cell2.setCellValue(verificationData_6.testsSteps(

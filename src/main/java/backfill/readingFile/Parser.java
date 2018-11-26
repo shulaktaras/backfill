@@ -25,6 +25,8 @@ public class Parser {
                     key = "characters";
                 } else if (key.equalsIgnoreCase("number") || key.equalsIgnoreCase("integer")) {
                     key = "numbers";
+                } else if (key.equalsIgnoreCase("date") || key.equalsIgnoreCase("timestamp")){
+                    key = "date";
                 }
 
                 if (!map.containsKey(key)) {
