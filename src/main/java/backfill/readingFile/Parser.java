@@ -21,11 +21,18 @@ public class Parser {
                 String value = tokenizer.nextToken();
                 String key = tokenizer.nextToken();
 
-                if (key.equalsIgnoreCase("char") || key.equalsIgnoreCase("varchar2")) {
+                if (key.equalsIgnoreCase("char")
+                        || key.equalsIgnoreCase("varchar2")
+                        || key.equalsIgnoreCase("varchar")) {
                     key = "characters";
-                } else if (key.equalsIgnoreCase("number") || key.equalsIgnoreCase("integer")) {
+                } else if (key.equalsIgnoreCase("number")
+                        || key.equalsIgnoreCase("integer")
+                        || key.equalsIgnoreCase("bigint")
+                        || key.equalsIgnoreCase("numeric")
+                        || key.equalsIgnoreCase("smallint")) {
                     key = "numbers";
-                } else if (key.equalsIgnoreCase("date") || key.equalsIgnoreCase("timestamp")){
+                } else if (key.equalsIgnoreCase("date")
+                        || key.equalsIgnoreCase("timestamp")){
                     key = "date";
                 }
 

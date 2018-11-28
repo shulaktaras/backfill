@@ -22,6 +22,8 @@ import backfill.testTemplates.test6.Test6ThirdLine;
 import backfill.testName.DefaultValue;
 import backfill.createExcelFile.ExcelFile;
 import backfill.testTemplates.test7.*;
+import backfill.testTemplates.test8.Test8FirstLine;
+import backfill.testTemplates.test8.Test8SecondLine;
 
 import java.io.File;
 import java.io.IOException;
@@ -282,6 +284,32 @@ public class AppendAllTests {
                 excelFile.getSheet(),
                 lastLineForT7L7,
                 defaultValue,
+                exelFileCreator
+        );
+
+
+        int lastLineForEmpStr7 = emptyStr.emptyString(
+                excelFile.getWorkbook(),
+                excelFile.getSheet(),
+                lastLineForT7L8,
+                exelFileCreator);
+
+
+        Test8FirstLine test8FirstLine = new Test8FirstLine();
+        int lastLineForT8L1 = test8FirstLine.firstLine(
+                excelFile.getWorkbook(),
+                excelFile.getSheet(),
+                lastLineForEmpStr7,
+                defaultValue,
+                map,
+                exelFileCreator
+        );
+
+        Test8SecondLine test8SecondLine = new Test8SecondLine();
+        test8SecondLine.secondLine(
+                excelFile.getWorkbook(),
+                excelFile.getSheet(),
+                lastLineForT8L1,
                 exelFileCreator
         );
 

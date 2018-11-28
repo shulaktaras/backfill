@@ -68,6 +68,8 @@ public class DefaultValue {
         definition.add("Verification of date format in target table in hive");
         definition.add("Verification of data between Oracle and hive table");
         definition.add("Validate rollback action");
+        definition.add("Verification of the count of data across table between source and hive " +
+                "tables for the given business attributes ");
     }
 
     public ArrayList<String> getDefinition() {
