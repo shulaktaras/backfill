@@ -35,7 +35,7 @@ public class Test4FirstLine {
 
                     cell2.setCellValue(sumOfCharStrColumns_4.testsSteps(
                             map.get("database").get(0),
-                            map.get("tableName").get(0),
+                            map.get("oracleTable").get(0),
                             map.get("backfillTable").get(0),
                             map.get("netezzaTable").get(0)
                     ));
@@ -44,8 +44,11 @@ public class Test4FirstLine {
                     Cell cell3 = row.createCell(i);
 
                     cell3.setCellValue(sumOfCharStrColumns_4.testDataSource2(
-                            map.get("schema").get(0),
-                            map.get("tableName").get(0),
+                            map.get("database").get(0),
+                            map.get("targetSchema").get(0),
+                            map.get("sourceSchema").get(0),
+                            map.get("netezzaTable").get(0),
+                            map.get("oracleTable").get(0),
                             map.get("characters")
                     ));
                     break;

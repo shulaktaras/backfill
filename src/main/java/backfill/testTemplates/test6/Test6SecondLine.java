@@ -14,9 +14,9 @@ import java.util.Map;
 
 public class Test6SecondLine {
 
-    public int secondLine(Workbook workbook, Sheet sheet, int lastRowNumer, Map<String, List<String>> map, File file) throws IOException {
-        lastRowNumer += 1;
-        Row row = sheet.createRow(lastRowNumer);
+    public int secondLine(Workbook workbook, Sheet sheet, int lastRowNumber, Map<String, List<String>> map, File file) throws IOException {
+        lastRowNumber += 1;
+        Row row = sheet.createRow(lastRowNumber);
 
 
         VerificationData_6 verificationData_6 = new VerificationData_6();
@@ -31,6 +31,7 @@ public class Test6SecondLine {
                     Cell cell3 = row.createCell(i);
 
                     cell3.setCellValue(verificationData_6.testDataTarget(
+                            map.get("targetSchema").get(0),
                             map.get("backfillTable").get(0),
                             map.get("PK")
                     ));

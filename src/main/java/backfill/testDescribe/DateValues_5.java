@@ -18,7 +18,7 @@ public class DateValues_5 extends Test {
     }
 
 
-    public String testDataSource2(String backfillTable, List<String> list) {
+    public String testDataSource2(String targetSchema ,String backfillTable, List<String> list) {
 
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("with t1 as( select ");
@@ -31,12 +31,18 @@ public class DateValues_5 extends Test {
                     .append(",");
         }
         stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-        stringBuilder.append(" from ").append(backfillTable).append(" )");
+        stringBuilder.append(" from ")
+                .append(targetSchema)
+                .append(".")
+                .append(backfillTable)
+                .append(" )");
 
 
         stringBuilder.append("select * from t1 where ");
         for (int i = 0; i < list.size(); i++) {
-            stringBuilder.append("result_").append(list.get(i)).append(" = 0 or ");
+            stringBuilder.append("result_")
+                    .append(list.get(i))
+                    .append(" = 1 or ");
         }
         stringBuilder.delete(stringBuilder.length()-3,stringBuilder.length());
         stringBuilder.append(";");

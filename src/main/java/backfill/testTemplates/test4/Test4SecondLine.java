@@ -36,6 +36,7 @@ public class Test4SecondLine {
 
                     cell3.setCellValue(sumOfCharStrColumns_4.testDataTarget2(
                             map.get("backfillTable").get(0),
+                            map.get("targetSchema").get(0),
                             map.get("characters")
                             ));
                     break;

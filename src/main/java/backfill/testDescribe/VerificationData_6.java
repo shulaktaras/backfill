@@ -29,61 +29,82 @@ public class VerificationData_6 extends Test {
         return null;
     }
 
-    public String testDataSource(String schema, String tableName, List<String> list) {
+    public String testDataSource(String database, String sourceSchema, String oracleTable, String netezzaTable, List<String> list) {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append("select *, rownum() over(order by ");
+        if (database.equalsIgnoreCase("Oracle")) {
+
+            stringBuilder.append("select *, rownum() over(order by ");
 
 
-        for (int i = 0; i < list.size(); i++) {
-            stringBuilder.append(list.get(i)).append(",");
+            for (int i = 0; i < list.size(); i++) {
+                stringBuilder.append(list.get(i)).append(",");
+            }
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.append(") as rn from ")
+                    .append(sourceSchema)
+                    .append(".")
+                    .append(oracleTable)
+                    .append(" where rn<=10000;");
+
+            return stringBuilder.toString();
+        } else
+
+            stringBuilder.append("select *, rownum() over(order by ");
+
+
+            for (int i = 0; i < list.size(); i++) {
+                stringBuilder.append(list.get(i)).append(",");
+            }
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.append(") as rn from ")
+                    .append(sourceSchema)
+                    .append(".")
+                    .append(netezzaTable)
+                    .append(" where rn<=10000;");
+
+            return stringBuilder.toString();
         }
-        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-        stringBuilder.append(") as rn from ")
-                .append(schema)
-                .append(".")
-                .append(tableName)
-                .append(" where rn<=10000;");
 
-        return stringBuilder.toString();
-    }
-
-    public String testDataTarget(String schema, String backfillTable) {
-        return "some query";
-    }
-
-    public String testDataTarget(String backfillTable, List<String> list) {
-
-        StringBuilder stringBuilder = new StringBuilder();
-
-        stringBuilder.append("qab --outputformat=csv2 -e \"select *, rownum() over(order by ");
-
-        for (String aList : list) {
-            stringBuilder.append(aList)
-                    .append(",");
+        public String testDataTarget (String schema, String backfillTable){
+            return "some query";
         }
-        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-        stringBuilder.append(") as rn ")
-                .append(backfillTable)
-                .append(" where rn <=10000; > theFileWhereToStoreTheData2.csv");
 
-        return stringBuilder.toString();
-    }
+        public String testDataTarget (String targetSchema ,String backfillTable, List < String > list){
 
-    public String expectedResultsForSource(String database, String tableName, String netezzaTable) {
-        return null;
-    }
+            StringBuilder stringBuilder = new StringBuilder();
 
-    public String expectedResultsForSource() {
-        return "Get csv file with data";
-    }
+            stringBuilder.append("qab --outputformat=csv2 -e \"select *, rownum() over(order by ");
 
-    public String expectedResultsForTarget(String database, String backfillTable) {
-        return null;
-    }
+            for (String aList : list) {
+                stringBuilder.append(aList)
+                        .append(",");
+            }
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.append(") as rn ")
+                    .append("from ")
+                    .append(targetSchema)
+                    .append(".")
+                    .append(backfillTable)
+                    .append(" where rn <=10000; > theFileWhereToStoreTheData2.csv");
 
-    public String expectedResult() {
-        return "Files match";
+            return stringBuilder.toString();
+        }
+
+        public String expectedResultsForSource (String database, String tableName, String netezzaTable){
+            return null;
+        }
+
+        public String expectedResultsForSource () {
+            return "Get csv file with data";
+        }
+
+        public String expectedResultsForTarget (String database, String backfillTable){
+            return null;
+        }
+
+        public String expectedResult () {
+            return "Files match";
+        }
     }
-}

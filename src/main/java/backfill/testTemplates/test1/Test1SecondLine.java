@@ -26,15 +26,15 @@ public class Test1SecondLine {
                     Cell cell2 = row.createCell(i);
 
                     cell2.setCellValue(numberOfRecords_1.testsSteps2(
-                            map.get("tableName").get(0),
+                            map.get("oracleTable").get(0),
                             map.get("backfillTable").get(0),
                             map.get("netezzaTable").get(0)));
                     break;
                 case 2:
                     Cell cell3 = row.createCell(i);
-                    cell3.setCellValue(numberOfRecords_1.testDataSource(
-                            map.get("schema").get(0),
-                            map.get("tableName").get(0)));
+                    cell3.setCellValue(numberOfRecords_1.testDataTarget(
+                            map.get("targetSchema").get(0),
+                            map.get("backfillTable").get(0)));
                     break;
                 case 3:
                     Cell cell4 = row.createCell(i);

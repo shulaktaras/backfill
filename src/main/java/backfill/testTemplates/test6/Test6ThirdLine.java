@@ -12,9 +12,9 @@ import java.io.IOException;
 
 public class Test6ThirdLine {
 
-    public int thirdLine(Workbook workbook, Sheet sheet, int lastRowNumer,  File file) throws IOException {
-        lastRowNumer += 1;
-        Row row = sheet.createRow(lastRowNumer);
+    public int thirdLine(Workbook workbook, Sheet sheet, int lastRowNumber,  File file) throws IOException {
+        lastRowNumber += 1;
+        Row row = sheet.createRow(lastRowNumber);
 
 
         VerificationData_6 verificationData_6 = new VerificationData_6();

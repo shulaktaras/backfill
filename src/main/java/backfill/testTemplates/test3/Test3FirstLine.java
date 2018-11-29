@@ -34,7 +34,7 @@ public class Test3FirstLine {
 
                     cell2.setCellValue(sumOfNumericValues_3.testsSteps(
                             map.get("database").get(0),
-                            map.get("tableName").get(0),
+                            map.get("oracleTable").get(0),
                             map.get("backfillTable").get(0),
                             map.get("netezzaTable").get(0)
                     ));
@@ -43,8 +43,10 @@ public class Test3FirstLine {
                     Cell cell3 = row.createCell(i);
 
                     cell3.setCellValue(sumOfNumericValues_3.testDataSource2(
-                            map.get("schema").get(0),
-                            map.get("tableName").get(0),
+                            map.get("database").get(0),
+                            map.get("sourceSchema").get(0),
+                            map.get("netezzaTable").get(0),
+                            map.get("oracleTable").get(0),
                             map.get("numbers")
                     ));
                     break;

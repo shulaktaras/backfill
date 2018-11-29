@@ -35,7 +35,7 @@ public class Test5FirstLine {
 
                     cell2.setCellValue(dateValues_5.testsSteps(
                             map.get("database").get(0),
-                            map.get("tableName").get(0),
+                            map.get("oracleTable").get(0),
                             map.get("backfillTable").get(0),
                             map.get("netezzaTable").get(0)
                     ));
@@ -44,6 +44,7 @@ public class Test5FirstLine {
                     Cell cell3 = row.createCell(i);
 
                     cell3.setCellValue(dateValues_5.testDataSource2(
+                            map.get("targetSchema").get(0),
                             map.get("backfillTable").get(0),
                             map.get("date")
                     ));

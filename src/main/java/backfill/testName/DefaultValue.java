@@ -61,12 +61,12 @@ public class DefaultValue {
 //        definition.add("Test Steps");
 //        definition.add("Test Data");
 //        definition.add("Expected results");
-        definition.add("Verification of number of records in Oracle table and target table in hive");
-        definition.add("Verification of column names and data types in Oracle table and target table in hive");
-        definition.add("Verification of sum of values of numeric columns in Oracle table and target table in hive");
-        definition.add("Verification of sum of characters in string columns in Oracle table and target table in hive");
+        definition.add("Verification of number of records in source table and target table in hive");
+        definition.add("Verification of column names and data types in source table and target table in hive");
+        definition.add("Verification of sum of values of numeric columns in source table and target table in hive");
+        definition.add("Verification of sum of characters in string columns in source table and target table in hive");
         definition.add("Verification of date format in target table in hive");
-        definition.add("Verification of data between Oracle and hive table");
+        definition.add("Verification of data between source and hive table");
         definition.add("Validate rollback action");
         definition.add("Verification of the count of data across table between source and hive " +
                 "tables for the given business attributes ");

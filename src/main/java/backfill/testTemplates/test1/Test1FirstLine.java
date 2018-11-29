@@ -40,19 +40,23 @@ public class Test1FirstLine {
 
                     cell2.setCellValue(numberOfRecords_1.testsSteps(
                             map.get("database").get(0),
-                            map.get("tableName").get(0),
+                            map.get("oracleTable").get(0),
                             map.get("backfillTable").get(0),
                             map.get("netezzaTable").get(0)));
                     break;
                 case 2:
                     Cell cell3 = row.createCell(i);
-                    cell3.setCellValue(numberOfRecords_1.testDataSource(map.get("schema").get(0), map.get("tableName").get(0)));
+                    cell3.setCellValue(numberOfRecords_1.testDataSource(
+                            map.get("database").get(0),
+                            map.get("sourceSchema").get(0),
+                            map.get("oracleTable").get(0),
+                            map.get("netezzaTable").get(0)));
                     break;
                 case 3:
                     Cell cell4 = row.createCell(i);
                     cell4.setCellValue(numberOfRecords_1.expectedResultsForSource(
                             map.get("database").get(0),
-                            map.get("tableName").get(0),
+                            map.get("oracleTable").get(0),
                             map.get("netezzaTable").get(0)));
                     break;
             }

@@ -23,15 +23,37 @@ public class VerfOfDataCount_8 extends Test {
 
 
     @Override
-    public String testDataSource(String schema, String tableName) {
+    public String testDataSource(String schema, String oracleTable) {
         return null;
     }
 
-    public String testDataSource(String schema, String tableName, List<String> list) {
+    public String testDataSource(String database, String sourceSchema, String netezzaTable, String oracleTable, List<String> list) {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append("select count(*), ");
+        if (database.equalsIgnoreCase("Oracle")) {
+            stringBuilder.append("select count(*), ");
+
+            for (String s : list) {
+                stringBuilder.append(s).append(", ");
+            }
+
+            stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
+
+            stringBuilder.append(" from ")
+                    .append(sourceSchema)
+                    .append(".")
+                    .append(oracleTable)
+                    .append(" group by ");
+
+            for (String s : list) {
+                stringBuilder.append(s).append(", ");
+            }
+
+            stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
+            return stringBuilder.toString();
+        }else
+            stringBuilder.append("select count(*), ");
 
         for (String s : list) {
             stringBuilder.append(s).append(", ");
@@ -40,9 +62,9 @@ public class VerfOfDataCount_8 extends Test {
         stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
 
         stringBuilder.append(" from ")
-                .append(schema)
+                .append(sourceSchema)
                 .append(".")
-                .append(tableName)
+                .append(netezzaTable)
                 .append(" group by ");
 
         for (String s : list) {
@@ -51,6 +73,7 @@ public class VerfOfDataCount_8 extends Test {
 
         stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
         return stringBuilder.toString();
+
     }
 
     @Override
@@ -72,6 +95,7 @@ public class VerfOfDataCount_8 extends Test {
     public String expectedResultsForTarget(String database, String backfillTable) {
         return null;
     }
+
     public String expectedResultsForTarget1() {
         return "Data were exported successfully";
     }

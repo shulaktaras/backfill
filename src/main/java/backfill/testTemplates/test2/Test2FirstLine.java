@@ -34,7 +34,7 @@ public class Test2FirstLine {
 
                     cell2.setCellValue(colNamesAndDataTypes_2.testsSteps(
                             map.get("database").get(0),
-                            map.get("tableName").get(0),
+                            map.get("oracleTable").get(0),
                             map.get("backfillTable").get(0),
                             map.get("netezzaTable").get(0)));
                     break;
@@ -45,7 +45,7 @@ public class Test2FirstLine {
                     Cell cell4 = row.createCell(i);
                     cell4.setCellValue(colNamesAndDataTypes_2.expectedResultsForSource(
                             map.get("database").get(0),
-                            map.get("tableName").get(0),
+                            map.get("oracleTable").get(0),
                             map.get("netezzaTable").get(0)));
                     break;
             }

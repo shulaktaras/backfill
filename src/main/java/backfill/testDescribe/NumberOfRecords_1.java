@@ -14,6 +14,7 @@ public class NumberOfRecords_1 extends Test {
         } else return "Check the number of records in " + database + " " + netezzaTable;
     }
 
+
     public String testsSteps2(String tableName, String backfillTable, String netezzaTable) {
         return "Check the number of records in hive " + backfillTable + " table";
     }
@@ -22,14 +23,21 @@ public class NumberOfRecords_1 extends Test {
         return "Compare number of records in " + database + " and hive tables";
     }
 
-    public String testDataSource(String schema, String tableName) {
-        return "select count(*) " +
-                "from " + schema + "." + tableName;
+    public String testDataSource(String database ,String sourceSchema, String oracleTable, String netezzaTable) {
+        if (database.equalsIgnoreCase("Oracle")) {
+            return "select count(*) " +
+                    "from " + sourceSchema + "." + oracleTable;
+        } else return "select count(*) " +
+                "from " + sourceSchema + "." + netezzaTable;
     }
 
-    public String testDataTarget(String schema, String backfillTable) {
+    public String testDataTarget(String targetSchema, String backfillTable) {
         return "select count(*)" +
-                "from " + backfillTable;
+                " from " + targetSchema + "." + backfillTable;
+    }
+
+    public String testDataSource(String schema, String tableName) {
+        return null;
     }
 
     public String expectedResultsForSource(String database, String tableName, String netezzaTable) {

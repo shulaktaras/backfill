@@ -14,9 +14,10 @@ import java.util.Map;
 
 public class Test3SecondLine {
 
-    public int secondLine(Workbook workbook, Sheet sheet, int lastRowNumer, Map<String, List<String>> map, File file) throws IOException {
-        lastRowNumer += 1;
-        Row row = sheet.createRow(lastRowNumer);
+
+    public int secondLine(Workbook workbook, Sheet sheet, int lastRowNumber, Map<String, List<String>> map, File file) throws IOException {
+        lastRowNumber += 1;
+        Row row = sheet.createRow(lastRowNumber);
 
         SumOfNumericValues_3 sumOfNumericValues_3 = new SumOfNumericValues_3();
 
@@ -34,6 +35,7 @@ public class Test3SecondLine {
 
                     cell3.setCellValue(sumOfNumericValues_3.testDataTarget2(
                             map.get("backfillTable").get(0),
+                            map.get("targetSchema").get(0),
                             map.get("numbers")
                     ));
                     break;

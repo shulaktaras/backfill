@@ -16,9 +16,9 @@ import java.util.Map;
 
 public class Test6FirstLine {
 
-    public int firstLine(Workbook workbook, Sheet sheet, int lastRowNumer, DefaultValue defaultValue, Map<String, List<String>> map, File file) throws IOException {
-        lastRowNumer += 1;
-        Row row = sheet.createRow(lastRowNumer);
+    public int firstLine(Workbook workbook, Sheet sheet, int lastRowNumber, DefaultValue defaultValue, Map<String, List<String>> map, File file) throws IOException {
+        lastRowNumber += 1;
+        Row row = sheet.createRow(lastRowNumber);
 
         ArrayList<String> definition = defaultValue.getDefinition();
 
@@ -40,8 +40,10 @@ public class Test6FirstLine {
                     Cell cell3 = row.createCell(i);
 
                     cell3.setCellValue(verificationData_6.testDataSource(
-                            map.get("schema").get(0),
-                            map.get("tableName").get(0),
+                            map.get("database").get(0),
+                            map.get("sourceSchema").get(0),
+                            map.get("oracleTable").get(0),
+                            map.get("netezzaTable").get(0),
                             map.get("PK")
                     ));
                     break;

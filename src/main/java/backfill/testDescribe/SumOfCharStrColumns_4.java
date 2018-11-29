@@ -27,10 +27,28 @@ public class SumOfCharStrColumns_4 extends Test {
         return null;
     }
 
-    public String testDataSource2(String schema, String tableName, List<String> list) {
+    public String testDataSource2(String database, String targetSchema ,String sourceSchema, String netezzaTable,String oracleTable, List<String> list) {
 
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("select ");
+
+        if (database.equalsIgnoreCase("Oracle")) {
+            stringBuilder.append("select ");
+
+            for (String aList : list) {
+                stringBuilder.append("sum(length(coalesce(")
+                        .append(aList)
+                        .append(",''))),");
+            }
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.append("from ")
+                    .append(sourceSchema)
+                    .append(".")
+                    .append(oracleTable)
+                    .append(";");
+
+            return stringBuilder.toString();
+        }else
+            stringBuilder.append("select ");
 
         for (String aList : list) {
             stringBuilder.append("sum(length(coalesce(")
@@ -39,9 +57,9 @@ public class SumOfCharStrColumns_4 extends Test {
         }
         stringBuilder.deleteCharAt(stringBuilder.length() - 1);
         stringBuilder.append("from ")
-                .append(schema)
+                .append(targetSchema)
                 .append(".")
-                .append(tableName)
+                .append(netezzaTable)
                 .append(";");
 
         return stringBuilder.toString();
@@ -51,7 +69,7 @@ public class SumOfCharStrColumns_4 extends Test {
         return "some query";
     }
 
-    public String testDataTarget2(String backfillTable, List<String> list) {
+    public String testDataTarget2(String backfillTable,String targetSchema ,List<String> list) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("select ");
 
@@ -62,6 +80,8 @@ public class SumOfCharStrColumns_4 extends Test {
         }
         stringBuilder.deleteCharAt(stringBuilder.length() - 1);
         stringBuilder.append("from ")
+                .append(targetSchema)
+                .append(".")
                 .append(backfillTable)
                 .append(";");
 
