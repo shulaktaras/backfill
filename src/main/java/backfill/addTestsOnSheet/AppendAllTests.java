@@ -22,8 +22,10 @@ import backfill.testTemplates.test6.Test6ThirdLine;
 import backfill.testName.DefaultValue;
 import backfill.createExcelFile.ExcelFile;
 import backfill.testTemplates.test7.*;
+import backfill.testTemplates.test8.Test8FifthLine;
 import backfill.testTemplates.test8.Test8FirstLine;
 import backfill.testTemplates.test8.Test8SecondLine;
+import backfill.testTemplates.test8.Test8ThirdLine;
 
 import java.io.File;
 import java.io.IOException;
@@ -306,12 +308,33 @@ public class AppendAllTests {
         );
 
         Test8SecondLine test8SecondLine = new Test8SecondLine();
-        test8SecondLine.secondLine(
+        int lastLineForT8L2 = test8SecondLine.secondLine(
                 excelFile.getWorkbook(),
                 excelFile.getSheet(),
                 lastLineForT8L1,
                 exelFileCreator
         );
+
+        Test8ThirdLine test8ThirdLine = new Test8ThirdLine();
+        int lastLineForT8L3 = test8ThirdLine.thirdLine(excelFile.getWorkbook(),
+                excelFile.getSheet(),
+                lastLineForT8L2,
+                map,
+                exelFileCreator);
+
+
+        int lastLineForT8L4 = test8SecondLine.secondLine(
+                excelFile.getWorkbook(),
+                excelFile.getSheet(),
+                lastLineForT8L3,
+                exelFileCreator
+        );
+
+        Test8FifthLine test8FifthLine = new Test8FifthLine();
+        test8FifthLine.fifthLine(excelFile.getWorkbook(),
+                excelFile.getSheet(),
+                lastLineForT8L4,
+                exelFileCreator);
 
     }
 }

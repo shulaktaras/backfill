@@ -87,7 +87,7 @@ public class VerificationData_6 extends Test {
                     .append(targetSchema)
                     .append(".")
                     .append(backfillTable)
-                    .append(" where rn <=10000; > theFileWhereToStoreTheData2.csv");
+                    .append(" where rn <=10000; > test6_output.csv");
 
             return stringBuilder.toString();
         }

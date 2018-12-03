@@ -76,7 +76,8 @@ public class SumOfNumericValues_3 extends Test {
     public String testDataTarget2(String backfillTable,String targetSchema, List<String> list) {
 
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("select ");
+        stringBuilder.append("qab --outputformat=csv2 -e \"")
+                .append(" select ");
 
         for (String aList : list) {
             stringBuilder.append("sum(")
@@ -88,7 +89,7 @@ public class SumOfNumericValues_3 extends Test {
                 .append(targetSchema)
                 .append(".")
                 .append(backfillTable)
-                .append(";");
+                .append(";\" > test3_output.csv");
 
         return stringBuilder.toString();
     }

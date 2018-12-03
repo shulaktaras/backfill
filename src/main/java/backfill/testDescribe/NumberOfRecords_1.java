@@ -32,8 +32,8 @@ public class NumberOfRecords_1 extends Test {
     }
 
     public String testDataTarget(String targetSchema, String backfillTable) {
-        return "select count(*)" +
-                " from " + targetSchema + "." + backfillTable;
+        return "qab --outputformat=csv2 -e \" select count(*)" +
+                " from " + targetSchema + "." + backfillTable + ";\" > test1_output.csv";
     }
 
     public String testDataSource(String schema, String tableName) {

@@ -18,9 +18,16 @@ public class VerfOfDataCount_8 extends Test {
     }
 
     public String testsSteps2() {
-        return "Export this data nto csv file";
+        return "Export this data into csv file";
     }
 
+    public String testsSteps3() {
+        return "Get data from target table";
+    }
+
+    public String testsSteps5() {
+        return "Compare two files";
+    }
 
     @Override
     public String testDataSource(String schema, String oracleTable) {
@@ -52,7 +59,7 @@ public class VerfOfDataCount_8 extends Test {
 
             stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
             return stringBuilder.toString();
-        }else
+        } else
             stringBuilder.append("select count(*), ");
 
         for (String s : list) {
@@ -74,6 +81,34 @@ public class VerfOfDataCount_8 extends Test {
         stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
         return stringBuilder.toString();
 
+    }
+
+    public String testDataSource2(String backfillTable, String targetSchema, List<String> list) {
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+
+        stringBuilder.append("qab --outputformat=csv2 -e \" select count(*), ");
+
+        for (String s : list) {
+            stringBuilder.append(s).append(", ");
+        }
+
+        stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
+
+        stringBuilder.append(" from ")
+                .append(targetSchema)
+                .append(".")
+                .append(backfillTable)
+                .append(" group by ");
+
+        for (String s : list) {
+            stringBuilder.append(s).append(", ");
+        }
+
+        stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
+        stringBuilder.append(";\" > test4_output.csv");
+        return stringBuilder.toString();
     }
 
     @Override
@@ -98,5 +133,9 @@ public class VerfOfDataCount_8 extends Test {
 
     public String expectedResultsForTarget1() {
         return "Data were exported successfully";
+    }
+
+    public String expectedResult() {
+        return "Files match";
     }
 }

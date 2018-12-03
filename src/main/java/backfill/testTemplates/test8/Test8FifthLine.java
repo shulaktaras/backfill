@@ -10,8 +10,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class Test8SecondLine {
-    public int secondLine(Workbook workbook, Sheet sheet, int lastRowNumber, File file) throws IOException {
+public class Test8FifthLine {
+
+    public int fifthLine(Workbook workbook, Sheet sheet, int lastRowNumber, File file) throws IOException {
         lastRowNumber += 1;
         Row row = sheet.createRow(lastRowNumber);
 
@@ -25,14 +26,14 @@ public class Test8SecondLine {
                     break;
                 case 1:
                     Cell cell2 = row.createCell(i);
-                    cell2.setCellValue(verfOfDataCount_8.testsSteps2());
+                    cell2.setCellValue(verfOfDataCount_8.testsSteps5());
                     break;
                 case 2:
                     Cell cell3 = row.createCell(i);
                     break;
                 case 3:
                     Cell cell4 = row.createCell(i);
-                    cell4.setCellValue(verfOfDataCount_8.expectedResultsForTarget1());
+                    cell4.setCellValue(verfOfDataCount_8.expectedResult());
                     break;
             }
         }
@@ -41,4 +42,5 @@ public class Test8SecondLine {
         workbook.close();
         return sheet.getLastRowNum();
     }
+
 }
